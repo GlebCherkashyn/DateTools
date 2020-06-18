@@ -155,7 +155,7 @@ public extension Date {
     }
     
     
-    func shortTimeAgo(since date:Date) -> String {
+  func shortTimeAgo(since date:Date) -> String {
         let calendar = NSCalendar.current
         let unitFlags = Set<Calendar.Component>([.second,.minute,.hour,.day,.weekOfYear,.month,.year])
         let earliest = self.earlierDate(date)
@@ -168,31 +168,31 @@ public extension Date {
         
         
         if (components.year! >= 1) {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@y", value: components.year!)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ y", value: components.year!)
         }
         else if (components.month! >= 1) {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@M", value: components.month!)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ M", value: components.month!)
         }
         else if (components.weekOfYear! >= 1) {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@w", value: components.weekOfYear!)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ w", value: components.weekOfYear!)
         }
         else if (components.day! >= 2) {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@d", value: components.day!)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ d", value: components.day!)
         }
         else if (isYesterday) {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@d", value: 1)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ d", value: 1)
         }
         else if (components.hour! >= 1) {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@h", value: components.hour!)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ h", value: components.hour!)
         }
         else if (components.minute! >= 1) {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@m", value: components.minute!)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ m", value: components.minute!)
         }
         else if (components.second! >= 3) {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@s", value: components.second!)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ s", value: components.second!)
         }
         else {
-            return self.logicalLocalizedStringFromFormat(format: "%%d%@s", value: components.second!)
+            return self.logicalLocalizedStringFromFormat(format: "%%d%@ s", value: components.second!)
             //return DateToolsLocalizedStrings(@"Now"); //string not yet translated 2014.04.05
         }
     }
